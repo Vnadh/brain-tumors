@@ -3,10 +3,10 @@ This Streamlit application classifies brain MRI images into four categories of b
 ## Project Overview
 Brain tumor classification can aid medical professionals in diagnosing and selecting appropriate treatments. This project applies deep learning to classify MRI brain images into four categories:
 
-    * Glioma
-    * Meningioma
-    * No Tumor
-    * Pituitary
+    - Glioma
+    - Meningioma
+    - No Tumor
+    - Pituitary
 To explain the model's decisions, it leverages LIME to show which parts of the image the model considers most influential.
 ## Features
 **Image Classification:** Predicts brain tumor type from uploaded MRI images.
