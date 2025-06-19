@@ -102,10 +102,10 @@ def compare_methods(model, target_layers, input_tensor, rgb_img):
         output = model(input_tensor)
         class_idx = torch.argmax(output).item()
     
-    h=(page_width//2)+2
+    h=(page_width//2)+5
     fig, axs = plt.subplots(1, len(methods)+1, figsize=(h,20))
     axs[0].imshow(rgb_img)
-    axs[0].set_title("Original Image", fontsize=72)
+    axs[0].set_title("\n\nOriginal Image", fontsize=72)
     axs[0].axis('off')
     
     class_names = {0: 'glioma', 1: 'meningioma', 2: 'no tumor', 3: 'pituitary'}
@@ -114,7 +114,7 @@ def compare_methods(model, target_layers, input_tensor, rgb_img):
         grayscale_cam = cam(input_tensor=input_tensor, targets=[ClassifierOutputTarget(class_idx)], aug_smooth=True)[0, :]
         visualization = show_cam_on_image(rgb_img, grayscale_cam, use_rgb=True)
         axs[i+1].imshow(visualization)
-        axs[i+1].set_title(f"{name}", fontsize=72)
+        axs[i+1].set_title(f"\n\n{name}", fontsize=72)
         axs[i+1].axis('off')
     
     plt.suptitle(f"Comparison for {class_names[class_idx]} tumor", fontsize=100)
